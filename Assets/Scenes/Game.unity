@@ -8472,7 +8472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d03a8ff05b38a8469d3f24c595c275a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puppy3Animator: {fileID: 0}
+  puppy3Animator: {fileID: 1862748081}
   magicSpellParticleSystem: {fileID: 30931216}
 --- !u!1 &1865222205
 GameObject:

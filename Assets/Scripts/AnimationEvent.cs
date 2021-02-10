@@ -17,18 +17,22 @@ public class AnimationEvent : MonoBehaviour
 
 	private void Update()
 	{
-		float input = Input.GetAxisRaw("Vertical");
+		if (Input.GetAxisRaw("Vertical") > 0f) //Walk
+		{
+			transform.position += new Vector3(Time.deltaTime * 0.4f, 0f);
+			ChangeAnim("WalkPup3");
+		}
+		else //Idle
+		{
+			ChangeAnim("IdlePup3");
+		}
 
-		//if()
+		StartCoroutine(Wait());
 
-		transform.position += new Vector3(input * speed * Time.deltaTime, 0f);
-
-		PuppyMagicSpell();
 	}
 
 	public void PuppyMagicSpell()
 	{
-		StartCoroutine(Wait());
 		magicSpellParticleSystem.Emit(200);
 	}
 
@@ -42,5 +46,8 @@ public class AnimationEvent : MonoBehaviour
 	private IEnumerator Wait()
 	{
 		yield return new WaitForSeconds(3);
+		PuppyMagicSpell();
+		yield return new WaitForSeconds(3);
+		
 	}
 }
