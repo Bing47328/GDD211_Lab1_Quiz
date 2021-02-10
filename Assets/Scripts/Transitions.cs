@@ -8,16 +8,27 @@
 public class Transitions : MonoBehaviour
 {
 	[SerializeField] private Animator puppy1Animator;
+	private string currentAnim;
 
 	private void Update()
 	{
 		if (Input.GetAxisRaw("Vertical") > 0f) //Walk
 		{
 			transform.position += new Vector3(Time.deltaTime * 0.3f, 0f);
+			ChangeAnim("WalkPup1");
 		}
 		else //Idle
 		{
-
+			ChangeAnim("IdlePup1");
 		}
+
+
+	}
+
+	private void ChangeAnim(string newAnim)
+	{
+		if (currentAnim == newAnim) return;
+		puppy1Animator.Play(newAnim);
+		currentAnim = newAnim;
 	}
 }
